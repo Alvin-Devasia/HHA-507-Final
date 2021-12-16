@@ -34,7 +34,7 @@ st.write('This app is providing answers to the following questions:')
 st.write('1. How does Stony Brook compare to the rest of NY?')
 st.write('2. Stony Brook - Most expensive inpatient DRGs')
 st.write('3. Stony Brook - Most expensive outpatient DRGs')
-st.write('4. ')
+st.write('4. What hospital type is the most common in New York?')
 st.write('5. ')
 st.write('6. ')
 
@@ -52,3 +52,9 @@ st.dataframe(outpatientdf)
 
 st.header('Inpatient Data Preview')
 st.dataframe(inpatientdf)
+
+#Bar Chart
+st.subheader('Hospital Type in New York')
+bar1 = hospitaldf['hospital_type'].value_counts().reset_index()
+st.dataframe(bar1)
+st.caption('Acute care hospitals is the most common hospital type in New York ')
