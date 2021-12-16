@@ -37,3 +37,8 @@ st.write('3. Stony Brook - Most expensive outpatient DRGs')
 st.write('4. ')
 st.write('5. ')
 st.write('6. ')
+
+# Load the data:     
+hospitaldf = load_hospitals()
+inpatientdf = load_inatpatient()
+outpatientdf = load_outpatient()  
