@@ -29,7 +29,7 @@ def load_outpatient():
     return outpatientdf
 
 st.title('HHA 507 - Final Assignment')
-st.write('Victoria Rodriguez Silva :sunglasses:') 
+st.write('-Alvin Devasia :sunglasses:') 
 st.write('This app is providing answers to the following questions:')
 st.write('1. How does Stony Brook compare to the rest of NY?')
 st.write('2. Stony Brook - Most expensive inpatient DRGs')
