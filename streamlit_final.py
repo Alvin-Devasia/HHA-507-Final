@@ -90,19 +90,22 @@ st.plotly_chart(fig7)
 st.markdown('2.  Which states have the lowest number of inpatient and outpatient facilities?')
 st.markdown('- Alaska has the lowest number of inpatient and outpatient facilities. ') 
 
-# Create a unique dataframe for New York Hospitals 
-hospitals_ny = hospitaldf[hospitaldf['state'] == 'NY']
-st.header('Hospitals in New York Summary')
-st.markdown('This dataset filters out hospitals located in New York from the main hospital dataframe')
-st.dataframe(hospitals_ny)
+st.subheader('Question 1')
+st.write('Question1: How does the data for Stony Brook compare to other outpatient facilities for the most expensive APCs?')
+st.markdown('Based on the two pivot tables here, we can see that the most expensive outpatient APC at Stonybrook is 0074 - Level IV Endoscopy Upper Airway. The most expensive outpatient APC in non Stonybrook facilities is also 0074 - Level IV Endoscopy Upper Airway, however the average total payment for this APC at Stonybrook is $2307.21 whereas outside of Stonybrook the average total payment is $2783.802785')
 
-# Create a breakdown of the hospital types for New York
-table1 = hospitals_ny['hospital_type'].value_counts().reset_index()
-st.header('Hospital Types for New York')
-st.markdown('This dataset shows the 5 hospital types and their amounts for New York state.')
-st.dataframe(table1)
-st.markdown('Per the table above, you can see that the most popular hospital type in New York state is acute care.')
-st.markdown('To answer the first question, Stony Brook University Hospital also falls within this category.')
+##djweifjiwwifw
+table2 = outpatientdf['average_estimated_submitted_charges'].value_counts().reset_index()
+st.header('outpatient drgs')
+st.dataframe(table2)
+#3
+
+#4
+table4 = outpatientdf['average_total_payments'].value_counts().reset_index()
+st.header('outpatient services')
+st.dataframe(table4)
+
+
 
 
 
