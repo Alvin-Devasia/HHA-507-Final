@@ -123,7 +123,8 @@ st.markdown('Per the table above, you can see that the apc code with the highest
 st.header('6. Which state has the most hospitals?')
 st.subheader('Number of Hospitals for each State')
 bar2 = hospitaldf['state'].value_counts().reset_index()
-st.bar_chart(data=bar2, width=0, height=0, use_container_width=True)
+#st.bar_chart(data=bar2, width=0, height=0, use_container_width=True)
+st.dataframe(bar2)
 st.markdown('Texas has 449 hospitals, which makes it the state with the most hospitals, followed by California')
 
 
