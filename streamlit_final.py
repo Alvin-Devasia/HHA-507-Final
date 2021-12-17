@@ -118,25 +118,19 @@ st.dataframe(sb_services)
 st.markdown('Per the table above, you can see that the apc code with the highest average total payment is 0074 - Level IV Endoscopy Upper Airway.')
 
 ##5
-##Create dataframe unique for Stony Brook University Hospital
-SBU = hospitaldf[hospitaldf['hospital_name'] == 'SUNY/STONY BROOK UNIVERSITY HOSPITAL']
-st.header('Info for Stony Brook University Hospital')
-st.markdown('This dataset shows information for Stony Brook University Hospital')
-st.dataframe(SBU)
+##Question 5. Bar chart for hospital type in the U.S
+st.header('Q5. What is the frequency for hospital types across the nation?')
+st.subheader('Hospital Types - United States')
+bar1 = hospitaldf['hospital_type'].value_counts().reset_index()
+st.bar_chart(data=bar1, width=0, height=0, use_container_width=True)
+st.markdown('The majority of hospitals in the United States are acute care, followed by critical access')
 
-##Create dataframe unique for New York hospitals not including Stony Brook University Hospital
-NY = hospitaldf[hospitaldf['state'] == 'NY']
-st.header('Summary Info for Hospitals in New York')
-st.markdown('This dataset shows hospitals located in New York, filtered out from the main hospital dataframe, excluding SBU hospital')
-st.dataframe(NY)
-
-##Answering question 1.
-table1 = NY['hospital_overall_rating'].value_counts().reset_index()
-st.header('Q1. How does Stony Brook Univeristy Hospital compare to the rest of New York in overall rating?')
-st.subheader('Hospital rating for New York')
-st.markdown('From this table, we can determine that most hospitals in New York has an overall rating of 1, with 5 representing the highest rating.')
-st.markdown('To answer question 1, we know from the previous table that Stony Brook University Hospital has an overall rating of 4, thus Stony Brook University has a higher overall rating than most hospitals within New York. ')
-st.dataframe(table1)
+##Question 6. Bar chart for number of hospitals by state
+st.header('6. Which state has the most hospitals?')
+st.subheader('Number of Hospitals for each State')
+bar2 = hospitaldf['state'].value_counts().reset_index()
+st.bar_chart(data=bar2, width=0, height=0, use_container_width=True)
+st.markdown('Texas has 449 hospitals, which makes it the state with the most hospitals, followed by California')
 
 
 
