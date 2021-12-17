@@ -118,12 +118,6 @@ st.dataframe(sb_services)
 st.markdown('Per the table above, you can see that the apc code with the highest average total payment is 0074 - Level IV Endoscopy Upper Airway.')
 
 ##5
-##Question 5. Bar chart for hospital type in the U.S
-st.header('Q5. What is the frequency for hospital types across the nation?')
-st.subheader('Hospital Types - United States')
-bar1 = hospitaldf['hospital_type'].value_counts().reset_index()
-st.bar_chart(data=bar1, width=0, height=0, use_container_width=True)
-st.markdown('The majority of hospitals in the United States are acute care, followed by critical access')
 
 ##Question 6. Bar chart for number of hospitals by state
 st.header('6. Which state has the most hospitals?')
