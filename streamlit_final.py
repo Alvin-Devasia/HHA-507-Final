@@ -9,6 +9,10 @@ Created on Thu Dec 16 14:19:21 2021
 import streamlit as st
 import pandas as pd
 import numpy as np
+import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import time
 
 
 ##How does Stony Brook compare to the rest of NY?
@@ -66,22 +70,6 @@ st.subheader('Inpatient Facility')
 bar7 = inpatientdf['provider_state'].value_counts().reset_index()
 st.dataframe(bar7)
 
-st.subheader('Bar Chart of Inpatient Facilities by state')
-fig7 = px.bar(bar7, x='index', y='provider_state')
-st.plotly_chart(fig7)
 
-
-st.markdown('The dataframe displayed below is for the outpatient facility')
-
-st.subheader('Outpatient Facility')
-bar7 = outpatientdf['provider_state'].value_counts().reset_index()
-st.dataframe(bar7)
-
-st.subheader('Bar Chart of outpatient Facilities by state')
-fig7 = px.bar(bar7, x='index', y='provider_state')
-st.plotly_chart(fig7)
-
-st.markdown('2.  Which states have the greatest number of inpatient and outpatient facilities?')
-st.markdown('- As shown by the analysis above, Florida has the most inpatient facilities and Texas has the most outpatient facilities') 
 
 
