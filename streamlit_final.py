@@ -72,7 +72,7 @@ st.subheader('Inpatient Facility')
 bar7 = inpatientdf['provider_state'].value_counts().reset_index()
 st.dataframe(bar7)
 
-st.subheader('Bar Chart of Inpatient Facilities by state')
+st.subheader('Inpatient Facilities by state')
 fig7 = px.bar(bar7, x='index', y='provider_state')
 st.plotly_chart(fig7)
 
@@ -83,13 +83,26 @@ st.subheader('Outpatient Facility')
 bar7 = outpatientdf['provider_state'].value_counts().reset_index()
 st.dataframe(bar7)
 
-st.subheader('Bar Chart of outpatient Facilities by state')
+st.subheader('Outpatient Facilities by state')
 fig7 = px.bar(bar7, x='index', y='provider_state')
 st.plotly_chart(fig7)
 
-st.markdown('2.  Which states have the greatest number of inpatient and outpatient facilities?')
-st.markdown('- As shown by the analysis above, Florida has the most inpatient facilities and Texas has the most outpatient facilities') 
+st.markdown('2.  Which states have the lowest number of inpatient and outpatient facilities?')
+st.markdown('- Alaska has the lowest number of inpatient and outpatient facilities. ') 
 
+# Create a unique dataframe for New York Hospitals 
+hospitals_ny = hospitaldf[hospitaldf['state'] == 'NY']
+st.header('Hospitals in New York Summary')
+st.markdown('This dataset filters out hospitals located in New York from the main hospital dataframe')
+st.dataframe(hospitals_ny)
+
+# Create a breakdown of the hospital types for New York
+table1 = hospitals_ny['hospital_type'].value_counts().reset_index()
+st.header('Hospital Types for New York')
+st.markdown('This dataset shows the 5 hospital types and their amounts for New York state.')
+st.dataframe(table1)
+st.markdown('Per the table above, you can see that the most popular hospital type in New York state is acute care.')
+st.markdown('To answer the first question, Stony Brook University Hospital also falls within this category.')
 
 
 
