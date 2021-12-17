@@ -89,32 +89,19 @@ st.markdown('2.  Which states have the lowest number of inpatient and outpatient
 st.markdown('- Alaska has the lowest number of inpatient and outpatient facilities. ') 
 
 
-##djweifjiwwifw
+##3
 # Create a unique dataframe for Stony Brook Inpatient info
 sb_inpatient = inpatientdf[inpatientdf['provider_id']==330393]
 st.header('Inpatient Data for Stony Brook')
 st.markdown('This dataset filters out inpatient data for Stony Brook University Hospital from the main inpatient dataframe')
 st.dataframe(sb_inpatient)
 
+##Answering Highest average payments per DRG for Stony Brook
 sb_discharges = sb_inpatient.pivot_table(index =['drg_definition'],values =['average_total_payments'],aggfunc='mean')
-st.header('Total Discharges for DRG Codes at Stony Brook')
-st.markdown('This pivot table shows the total discharges per drg code for Stony Brook University Hospital.')
+st.header('Average Total Payments for DRG Codes at Stony Brook')
+st.markdown('This pivot table shows the average total payments per drg code for Stony Brook University Hospital.')
 st.dataframe(sb_discharges)
-st.markdown('Per the table above, you can see that the highest amount of discharges came from drg code 871 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W MCC.')
-st.markdown('In comparison to the cumulative inpatient discharge data for all of New York, Stony Brook University Hospital shares the same drg code with the most discharges.')
+st.markdown('Per the table above, you can see that the highest average total payment came from drg code 003 - ECMO OR TRACH W MV >96 HRS OR PDX EXC FACE, MOUTH & NECK W MAJ O.R.')
 
 
-##example delete
-# Create a unique dataframe for Stony Brook Inpatient info
-sb_inpatient = inpatientdf[inpatientdf['provider_id']==330393]
-st.header('Inpatient Data for Stony Brook')
-st.markdown('This dataset filters out inpatient data for Stony Brook University Hospital from the main inpatient dataframe')
-st.dataframe(sb_inpatient)
-
-sb_discharges = sb_inpatient.pivot_table(index =['drg_definition'],values =['total_discharges'],aggfunc='mean')
-st.header('Total Discharges for DRG Codes at Stony Brook')
-st.markdown('This pivot table shows the total discharges per drg code for Stony Brook University Hospital.')
-st.dataframe(sb_discharges)
-st.markdown('Per the table above, you can see that the highest amount of discharges came from drg code 871 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W MCC.')
-st.markdown('In comparison to the cumulative inpatient discharge data for all of New York, Stony Brook University Hospital shares the same drg code with the most discharges.')
 
