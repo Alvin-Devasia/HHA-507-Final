@@ -117,35 +117,27 @@ st.markdown('This pivot table shows the average total payments per apc code for 
 st.dataframe(sb_services)
 st.markdown('Per the table above, you can see that the apc code with the highest average total payment is 0074 - Level IV Endoscopy Upper Airway.')
 
-##Mortality rates
-ny_hospitals = hospitaldf[hospitaldf['state'] == 'NY']
+##5
+##Create dataframe unique for Stony Brook University Hospital
+SBU = hospitaldf[hospitaldf['hospital_name'] == 'SUNY/STONY BROOK UNIVERSITY HOSPITAL']
+st.header('Info for Stony Brook University Hospital')
+st.markdown('This dataset shows information for Stony Brook University Hospital')
+st.dataframe(SBU)
 
-ca_hospitals = hospitaldf[hospitaldf['state'] == 'CA']
-st.header('Mortality Rates of NY and CA hospitals')
-st.subheader('NY Hospitals - Mortality Rate')
-bar2 = ny_hospitals['mortality_national_comparison'].value_counts().reset_index()
-fig2 = px.bar(bar2, x='index', y='mortality_national_comparison')
-st.plotly_chart(fig2)
+##Create dataframe unique for New York hospitals not including Stony Brook University Hospital
+NY = hospitaldf[hospitaldf['state'] == 'NY']
+st.header('Summary Info for Hospitals in New York')
+st.markdown('This dataset shows hospitals located in New York, filtered out from the main hospital dataframe, excluding SBU hospital')
+st.dataframe(NY)
 
+##Answering question 1.
+table1 = NY['hospital_overall_rating'].value_counts().reset_index()
+st.header('Q1. How does Stony Brook Univeristy Hospital compare to the rest of New York in overall rating?')
+st.subheader('Hospital rating for New York')
+st.markdown('From this table, we can determine that most hospitals in New York has an overall rating of 1, with 5 representing the highest rating.')
+st.markdown('To answer question 1, we know from the previous table that Stony Brook University Hospital has an overall rating of 4, thus Stony Brook University has a higher overall rating than most hospitals within New York. ')
+st.dataframe(table1)
 
-st.subheader('CA Hospitals - Mortality Rate')
-bar4 = ca_hospitals['mortality_national_comparison'].value_counts().reset_index()
-fig5 = px.bar(bar4, x='index', y='mortality_national_comparison')
-st.plotly_chart(fig5)
-
-#######DELETE
-
-nc_hospitals = hospitaldf[hospitaldf['state'] == 'NC']
-
-
-st.subheader('NC Hospitals - Mortality Rate')
-bar4 = nc_hospitals['mortality_national_comparison'].value_counts().reset_index()
-fig5 = px.bar(bar4, x='index', y='mortality_national_comparison')
-st.plotly_chart(fig5)
-
-st.markdown('6. How does New Yorks mortality rate compare with North Carolinas mortality rate?')
-st.markdown('- Based on the bar charts above, we can see the mortality rate is 60% for NC hospitals and close to 100%\
-           for NY hospitals, both remaining around the same as the national average')
 
 
 
