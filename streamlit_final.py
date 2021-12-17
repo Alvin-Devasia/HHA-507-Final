@@ -103,5 +103,20 @@ st.markdown('This pivot table shows the average total payments per drg code for 
 st.dataframe(sb_discharges)
 st.markdown('Per the table above, you can see that the highest average total payment came from drg code 003 - ECMO OR TRACH W MV >96 HRS OR PDX EXC FACE, MOUTH & NECK W MAJ O.R.')
 
+##4
+# Create a unique dataframe for Stony Brook Outpatient info
+sb_outpatient = outpatientdf[outpatientdf['provider_id']==330393]
+st.header('Outpatient Data for Stony Brook')
+st.markdown('This dataset filters out outpatient data for Stony Brook University Hospital from the main outpatient dataframe')
+st.dataframe(sb_outpatient) 
+
+
+sb_services = sb_outpatient.pivot_table(index =['apc'],values=['average_total_payments'],aggfunc='mean')
+st.header('Total Outpatient Services for APC Codes at Stony Brook')
+st.markdown('This pivot table shows the average total payments per apc code for Stony Brook University Hospital')
+st.dataframe(sb_services)
+st.markdown('Per the table above, you can see that the apc cde with the largest amount of services is 0269 - Level I Echocardiogram Without Contrast.')
+st.markdown('In comparison to the cumulative outpatient data for all of New York, where apc code 0634 - Hospital Clinic Visits was the service with the most services.')
+
 
 
