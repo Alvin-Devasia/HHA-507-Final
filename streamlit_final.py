@@ -61,14 +61,27 @@ st.caption('Acute care hospitals is the most common hospital type in New York ')
 
 #2
 st.title('Inpatient and outpatient dataframes')
-st.markdown('The dataframe displayed below is for the Inpatient facility')
 
 st.subheader('Inpatient Facility')
 bar7 = inpatientdf['provider_state'].value_counts().reset_index()
 st.dataframe(bar7)
 
 st.subheader('Bar Chart of Inpatient Facilities by state')
-fig7 = st.bar_chart(bar7, x='index', y='provider_state')
+fig7 = st.bar(bar7, x='index', y='provider_state')
 st.plotly_chart(fig7)
+
+
+st.markdown('The dataframe displayed below is for the outpatient facility')
+
+st.subheader('Outpatient Facility')
+bar7 = outpatientdf['provider_state'].value_counts().reset_index()
+st.dataframe(bar7)
+
+st.subheader('Bar Chart of outpatient Facilities by state')
+fig7 = st.bar(bar7, x='index', y='provider_state')
+st.plotly_chart(fig7)
+
+st.markdown('2.  Which states have the greatest number of inpatient and outpatient facilities?')
+st.markdown('- As shown by the analysis above, Florida has the most inpatient facilities and Texas has the most outpatient facilities') 
 
 
