@@ -37,7 +37,7 @@ def load_outpatient():
 st.title('HHA 507 - Final Assignment')
 st.write('-Alvin Devasia :sunglasses:') 
 st.write('This app is providing answers to the following questions:')
-st.write('1. Compare the mortality rate between NY and CA hospitals')
+st.write('1. Which state has the most number of hospitals?')
 st.write('2. Stony Brook - Most expensive inpatient DRGs')
 st.write('3. Stony Brook - Most expensive outpatient APC')
 st.write('4. What hospital type is the most common in New York?')
@@ -119,7 +119,7 @@ st.markdown('Per the table above, you can see that the apc code with the highest
 
 ##5
 
-##Question 6. Bar chart for number of hospitals by state
+##Question 5. Bar chart for number of hospitals by state
 st.header('6. Which state has the most hospitals?')
 st.subheader('Number of Hospitals for each State')
 bar2 = hospitaldf['state'].value_counts().reset_index()
@@ -129,7 +129,11 @@ st.dataframe(bar2)
 st.subheader('Inpatient Facilities by state')
 fig10 = px.bar(bar2, x='index', y='state')
 st.plotly_chart(fig10)
-st.markdown('Texas has 449 hospitals, which makes it the state with the most hospitals, followed by California')
+st.markdown('Texas is the state with the most hospitals')
+
+#6
+
+
 
 
 
