@@ -126,13 +126,20 @@ bar2 = hospitaldf['state'].value_counts().reset_index()
 #st.bar_chart(data=bar2, width=0, height=0, use_container_width=True)
 st.dataframe(bar2)
 
-st.subheader('Inpatient Facilities by state')
+st.subheader('Number of Hospitals per state')
 fig10 = px.bar(bar2, x='index', y='state')
 st.plotly_chart(fig10)
 st.markdown('Texas is the state with the most hospitals')
 
 #6
-
+st.header('Question 3: What caused the most discharges DRGs for Stony Brook Hospital?')
+sbinpatient = inpatientdf[inpatientdf['provider_id']==330393]
+st.header('Inpatient Data from Stony Brook Hospital')
+st.dataframe(sbinpatient)
+sbdischarges = sbinpatient.pivot_table(index =['drg_definition'],values =['total_discharges'],aggfunc='mean')
+st.header(' Discharges for DRG Codes at Stony Brook')
+st.dataframe(sbdischarges)
+st.markdown('Answer: Scrolling through the pivot table the highest amount of discharges came from "SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W MCC" 628 discharges, followed by "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC" with 286 discharges.')
 
 
 
