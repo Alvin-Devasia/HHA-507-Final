@@ -64,7 +64,7 @@ st.header('Question 1: What hospital type is the most common?')
 st.subheader('Hospital Type in New York')
 bar1 = hospitaldf['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
-st.caption('Answer: Acute care hospitals is the most common hospital type')
+st.markdown('Answer: Acute care hospitals is the most common hospital type')
 
 #2
 st.header('Question 2: Which states have the lowest number of inpatient and outpatient facilities?')
@@ -87,7 +87,6 @@ st.subheader('Outpatient Facilities by state')
 fig7 = px.bar(bar7, x='index', y='provider_state')
 st.plotly_chart(fig7)
 
-st.markdown('2.  Which states have the lowest number of inpatient and outpatient facilities?')
 st.markdown('Answer: Alaska has the lowest number of inpatient and outpatient facilities. ') 
 
 
