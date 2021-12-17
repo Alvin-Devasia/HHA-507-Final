@@ -39,7 +39,7 @@ st.write('-Alvin Devasia :sunglasses:')
 st.write('This app is providing answers to the following questions:')
 st.write('1. How does Stony Brook compare to the rest of NY?')
 st.write('2. Stony Brook - Most expensive inpatient DRGs')
-st.write('3. Stony Brook - Most expensive outpatient DRGs')
+st.write('3. Stony Brook - Most expensive outpatient APC')
 st.write('4. What hospital type is the most common in New York?')
 st.write('5. Which states have the lowest number of inpatient and outpatient facilities?')
 st.write('6. ')
@@ -115,8 +115,8 @@ sb_services = sb_outpatient.pivot_table(index =['apc'],values=['average_total_pa
 st.header('Total Outpatient Services for APC Codes at Stony Brook')
 st.markdown('This pivot table shows the average total payments per apc code for Stony Brook University Hospital')
 st.dataframe(sb_services)
-st.markdown('Per the table above, you can see that the apc cde with the largest amount of services is 0269 - Level I Echocardiogram Without Contrast.')
-st.markdown('In comparison to the cumulative outpatient data for all of New York, where apc code 0634 - Hospital Clinic Visits was the service with the most services.')
+st.markdown('Per the table above, you can see that the apc cOde with the highest average total payment is 0074 - Level IV Endoscopy Upper Airway.')
+
 
 
 
