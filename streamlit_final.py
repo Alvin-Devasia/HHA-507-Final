@@ -115,7 +115,23 @@ sb_services = sb_outpatient.pivot_table(index =['apc'],values=['average_total_pa
 st.header('Total Outpatient Services for APC Codes at Stony Brook')
 st.markdown('This pivot table shows the average total payments per apc code for Stony Brook University Hospital')
 st.dataframe(sb_services)
-st.markdown('Per the table above, you can see that the apc cOde with the highest average total payment is 0074 - Level IV Endoscopy Upper Airway.')
+st.markdown('Per the table above, you can see that the apc code with the highest average total payment is 0074 - Level IV Endoscopy Upper Airway.')
+
+##Mortality rates
+ny_hospitals = hospitaldf[hospitaldf['state'] == 'NY']
+
+ca_hospitals = hospitaldf[hospitaldf['state'] == 'CA']
+st.header('Mortality Rates of NY and CA hospitals')
+st.subheader('NY Hospitals - Mortality Rate')
+bar2 = ny_hospitals['mortality_national_comparison'].value_counts().reset_index()
+fig2 = px.bar(bar2, x='index', y='mortality_national_comparison')
+st.plotly_chart(fig2)
+
+
+st.subheader('CA Hospitals - Mortality Rate')
+bar4 = ca_hospitals['mortality_national_comparison'].value_counts().reset_index()
+fig5 = px.bar(bar4, x='index', y='mortality_national_comparison')
+st.plotly_chart(fig5)
 
 
 
