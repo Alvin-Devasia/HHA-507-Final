@@ -37,7 +37,7 @@ def load_outpatient():
 st.title('HHA 507 - Final Assignment')
 st.write('-Alvin Devasia :sunglasses:') 
 st.write('This app is providing answers to the following questions:')
-st.write('1. How does Stony Brook compare to the rest of NY?')
+st.write('1. Compare the mortality rate between NY and CA hospitals')
 st.write('2. Stony Brook - Most expensive inpatient DRGs')
 st.write('3. Stony Brook - Most expensive outpatient APC')
 st.write('4. What hospital type is the most common in New York?')
@@ -133,6 +133,19 @@ bar4 = ca_hospitals['mortality_national_comparison'].value_counts().reset_index(
 fig5 = px.bar(bar4, x='index', y='mortality_national_comparison')
 st.plotly_chart(fig5)
 
+#######DELETE
+
+nc_hospitals = hospitaldf[hospitaldf['state'] == 'NC']
+
+
+st.subheader('NC Hospitals - Mortality Rate')
+bar4 = nc_hospitals['mortality_national_comparison'].value_counts().reset_index()
+fig5 = px.bar(bar4, x='index', y='mortality_national_comparison')
+st.plotly_chart(fig5)
+
+st.markdown('6. How does New Yorks mortality rate compare with North Carolinas mortality rate?')
+st.markdown('- Based on the bar charts above, we can see the mortality rate is 60% for NC hospitals and close to 100%\
+           for NY hospitals, both remaining around the same as the national average')
 
 
 
