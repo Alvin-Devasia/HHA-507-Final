@@ -125,6 +125,10 @@ st.subheader('Number of Hospitals for each State')
 bar2 = hospitaldf['state'].value_counts().reset_index()
 #st.bar_chart(data=bar2, width=0, height=0, use_container_width=True)
 st.dataframe(bar2)
+
+st.subheader('Inpatient Facilities by state')
+fig10 = px.bar(bar2, x='index', y='state')
+st.plotly_chart(fig10)
 st.markdown('Texas has 449 hospitals, which makes it the state with the most hospitals, followed by California')
 
 
